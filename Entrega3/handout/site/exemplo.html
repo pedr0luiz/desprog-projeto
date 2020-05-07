@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Algoritimo de WaterShed</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&display=swap">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <main>
+
+<h1>Algoritimo de WaterShed</h1>
+
+<h2>Contexto</h2>
+
+<p>O algoritmo de WaterShed introduzido no inicio dos anos 90 por F. Meyer possui uma aplicação significativa na área de processamento de imagem, em específico na parte de segmentação de imagem.</p>
+
+<h2></h2>
+
+<p class="figure"><img alt="brain" src="img/brain.jpg" title="brain" class="raster"/></p>
+
+<h2>O algoritmo</h2>
+
+<p>O algoritmo recebe como entrada uma imagem em <em>greyscale</em>, ou seja, em tons de cinza. Ele interpreta essa imagem como um mapa topográfico em que os píxeis vizinhos de mesmo tom são como curvas de nível.</p>
+
+<p class="figure"><img alt="gif1" src="img/gif1.png" title="gif1" class="raster"/>
+varias coloi
+<img alt="gif2" src="gif2.png"/></p>
+
+<p> Os níveis de menor valor são preenchidos como uma &quot;piscina&quot; e quando as &quot;piscinas&quot; se encontram é delimitada uma barreira na imagem.</p>
+
+<p class="figure"><img alt="gif3" src="img/gif3.png" title="gif3" class="raster"/></p>
+
+<h2> Exercício 1</h2>
+
+<p class="figure"><img alt="input" src="img/input.jpg" title="input" class="raster"/></p>
+
+<p>Queremos separar todas as moedas dessa imagem. O watershed pode causar algum problema nessa segmentação em que os objetos são maiores?</p>
+
+<h3><a href="">continuar</a> ou <a href="">terminar</a></h3>
+
+<p>img supersegmentadaaaaaaaaaa</p>
+
+<h2> Exercício 2</h2>
+
+<p>Como é possível sulicionar esse problema?</p>
+
+<h3><a href="">continuar</a> ou <a href="">terminar</a></h3>
+
+<p>É possível adicionar marcadores com uma segunda imagem de entrada com as mesmas dimensões da imagem a ser segmentada contendo pontos/marcadores onde são localizados os centros das áreas conectadas. Esses pontos geralmente correspondem aos mínimos locais da imagem de entrada.</p>
+
+<p class="figure"><img alt="marker" src="img/marker.png" title="marker" class="raster"/></p>
+
+<p class="figure"><img alt="output" src="img/output.jpg" title="output" class="raster"/></p>
+
+<p>Implementação:</p>
+
+      </main>
+      <footer>
+        <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+          <img alt="Creative Commons Attribution-ShareAlike 4.0 International License" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" title="Creative Commons Attribution-ShareAlike 4.0 International License"/>
+        </a>
+        © 2020 Desafios de Programação
+      </footer>
+    </div>
+  </body>
+</html>
