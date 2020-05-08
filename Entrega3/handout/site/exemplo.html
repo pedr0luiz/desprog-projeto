@@ -31,29 +31,35 @@
 
 <p>O algoritmo recebe como entrada uma imagem em <em>greyscale</em>, ou seja, em tons de cinza. Ele interpreta essa imagem como um mapa topográfico em que os píxeis vizinhos de mesmo tom são como curvas de nível.</p>
 
-<p class="figure"><img alt="gif1" src="img/gif1.png" title="gif1" class="raster"/>
-varias coloi
-<img alt="gif2" src="gif2.png"/></p>
+<p class="figure"><img alt="gif1" src="img/gif1.png" title="gif1" class="raster"/></p>
 
-<p> Os níveis de menor valor são preenchidos como uma &quot;piscina&quot; e quando as &quot;piscinas&quot; se encontram é delimitada uma barreira na imagem.</p>
+<p>Os níveis de menor valor são preenchidos como uma &quot;piscina&quot;.</p>
+
+<p class="figure"><img alt="gif2" src="img/gif2.png" title="gif2" class="raster"/></p>
+
+<p>Quando as &quot;piscinas&quot; se encontram é delimitada uma barreira na imagem.</p>
 
 <p class="figure"><img alt="gif3" src="img/gif3.png" title="gif3" class="raster"/></p>
 
-<h2> Exercício 1</h2>
-
-<p class="figure"><img alt="input" src="img/input.jpg" title="input" class="raster"/></p>
+<h2>Exercício 1</h2>
 
 <p>Queremos separar todas as moedas dessa imagem. O watershed pode causar algum problema nessa segmentação em que os objetos são maiores?</p>
 
+<p class="figure"><img alt="input" src="img/input.jpg" title="input" class="raster"/></p>
+
 <h3><a href="">continuar</a> ou <a href="">terminar</a></h3>
+
+<p>Sim, o que pode acontecer é a super segmentação da imagem. Uma vez que a entrada consiste de diferentes valores de pixel, formando várias &quot;piscinas&quot;, a imagem de saída é em <em>greyscale</em> com muitas barreiras o que acaba dificultando a análise.</p>
 
 <p>img supersegmentadaaaaaaaaaa</p>
 
-<h2> Exercício 2</h2>
+<h2>Exercício 2</h2>
 
-<p>Como é possível sulicionar esse problema?</p>
+<p>Como é possível solucionar esse problema?</p>
 
 <h3><a href="">continuar</a> ou <a href="">terminar</a></h3>
+
+<p>Em uma implementação do algoritmo a utilização de marcadores iniciais pode fazer a diferença e diminuir os pontos pelos quais o algoritmo deve iterar, ou seja, diminuindo o número de &quot;piscinas&quot; iniciais, evitando a supersegmentação. Mas então como funciona essa implementação.</p>
 
 <p>É possível adicionar marcadores com uma segunda imagem de entrada com as mesmas dimensões da imagem a ser segmentada contendo pontos/marcadores onde são localizados os centros das áreas conectadas. Esses pontos geralmente correspondem aos mínimos locais da imagem de entrada.</p>
 
