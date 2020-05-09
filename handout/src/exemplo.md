@@ -32,7 +32,7 @@ Utilizando o algoritmo de watershed, queremos separar todas as moedas dessa imag
 
 Sim, o que pode acontecer é a super segmentação da imagem. Uma vez que a entrada consiste de diferentes valores de pixel, formando várias "piscinas", a imagem de saída é em _greyscale_ com muitas barreiras o que acaba dificultando a análise.
 
-## img supersegmentadaaaaaaaaaa
+![image_super_segmentada](output_superSeg.png)
 
 ## Exercício 2
 
