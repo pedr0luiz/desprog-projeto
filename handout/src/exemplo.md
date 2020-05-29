@@ -1,4 +1,4 @@
-# Algoritimo de WaterShed
+# Algoritmo de WaterShed
 
 ## Contexto
 
