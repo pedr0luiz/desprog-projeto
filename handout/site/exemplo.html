@@ -21,39 +21,73 @@
 
 <h2>Contexto</h2>
 
-<p>O algoritmo de WaterShed introduzido no inicio dos anos 90 por F. Meyer possui uma aplicação significativa na área de processamento de imagem, em específico na parte de segmentação de imagem.</p>
+<p>O algoritmo de watershed propõe uma abordagem morfológica para o problema de segmentação de imagens, interpretando-as como superfícies sendo que cada pixel corresponde à uma posição. Dessa forma, recebendo uma entrada grayscale cada valor de cinza que estiver presente na imagem pode ser considerado uma altura, como se fosse um label (pode ser com uma cor). Esse algoritimo é considerado uma transformada que aplica métodos em pixeis de uma imagem para encontrar diferentes regiões. Além disso, ele trata a imagem como um mapa topográfico classifica as regiões com diferentes cores.</p>
 
-<h2></h2>
+<h2>Segmentação</h2>
+
+<p>A segmentação nada mais é que uma maneira de identificar as diferentes regiões de uma imagem e delimitar o contorno delas. A segmentação de 
+imagens é utilizada para localizar objetos e/ou formas. O resultado da segmentação é um conjunto de regiões separadas por contornos.</p>
+
+<h2>Exercício 1</h2>
+
+<p>Vamos praticar nossa metodologia para aplicar a segmentação de imagem.</p>
+
+<p>Temos embaixo uma imagem com algumas moedas.</p>
+
+<p>Entrem no <a href="https://sketchpad.pro/CF31EF06D26063205C2:74bf2b1s#p5,0,0,r0,s1" target="_blank">link</a> e &quot;segmentem&quot; a imagem, lembrem-se dos contornos.</p>
+
+<p>Agora apliquem a mesma metologia para segmentar uma imagem de um cerébro neste <a href="https://sketchpad.pro/CF31EF06D26063205C2:74bf2b1s#p5,0,0,r0,s1" target="_blank">link</a>.</p>
+
+<h3><a href="">continuar</a> ou <a href="">terminar</a></h3>
+
+<h2>Exercício 2</h2>
+
+<p>Há alguma diferença na quantidade de segmentos ao aplicar a metodologia para as duas imagens?</p>
+
+<h3><a href="">continuar</a> ou <a href="">terminar</a></h3>
+
+<p>Sim, a segunda imagem possui muito mais regiões. Depois da segmentação de uma imagem que tem diferentes regiões ou regiões grandes com tons diferentes podemos obter como resultado imagens supersegmentadas. Podemos verificar que a imagem com as moedas é uma imagem que pode acabar ficando supersegmentada, prejudicando a ánalise.</p>
+
+<p class="figure"><img alt="input" src="img/input.jpg" title="input" class="raster"/></p>
+
+<p class="figure"><img alt="image_super_segmentada" src="img/output_superSeg.png" title="image_super_segmentada" class="raster"/></p>
+
+<p>Quando observamos a imagem supersegmentada do cerébro podemos verificar que ouve um aproveitamento maior, pois os cerébros têm mais 
+regiões que um punho de moedas, não é mesmo?</p>
 
 <p class="figure"><img alt="brain" src="img/brain.jpg" title="brain" class="raster"/></p>
+
+<p>Dessa forma, existem imagens que a aplicação da metologia do algoritmo acabam ficando super segmentadas. Dessas algumas acabam ficando boas para ánalise, como a imagem supersegmentada do cérebro, outras, como é o caso das moedas, ficam difíceis de serem analisadas quando supersegmentadas.</p>
 
 <h2>O algoritmo</h2>
 
 <p>O algoritmo recebe como entrada uma imagem em <em>greyscale</em>, ou seja, em tons de cinza. Ele interpreta essa imagem como um mapa topográfico em que os píxeis vizinhos de mesmo tom são como curvas de nível.</p>
 
-<p class="figure"><img alt="gif1" src="img/gif1.png" title="gif1" class="raster"/></p>
-
 <p>Os níveis de menor valor são preenchidos como uma &quot;piscina&quot;.</p>
-
-<p class="figure"><img alt="gif2" src="img/gif2.png" title="gif2" class="raster"/></p>
 
 <p>Quando as &quot;piscinas&quot; se encontram é delimitada uma barreira na imagem. Essa barreira se extende ao longo de vários pixeís vizinhos fazendo o contorno de &quot;territórios&quot; em que a cor é diferente da cor adjacente.</p>
 
-<p class="figure"><img alt="gif3" src="img/gif3.png" title="gif3" class="raster"/></p>
+<p class="figure"><img alt="gif" src="img/watershed.gif" title="gif" class="raster"/></p>
 
-<h2>Exercício 1</h2>
+<h2>Como codar</h2>
 
-<p class="figure"><img alt="input" src="img/input.jpg" title="input" class="raster"/></p>
+<p>O algoritimo é dividido em três passos fundamentais:</p>
 
-<p>Utilizando o algoritmo de watershed, queremos separar todas as moedas dessa imagem. O watershed pode causar algum problema nessa segmentação em que os objetos são maiores? Isto quer dizer existe a possibilidade de aplicarmos o watershed para essa imagem e ela não puder ser utilizada para análise?</p>
+<ol><li><p>Todos os pixeis de valores mínimos de uma imagem grayscale, as &quot;piscinas&quot;, são marcados uma <em>key</em> única e inserdos em uma fila de prioridade. A interface dos pixeis pode ser representada dessa forma:</p><pre><code>interface Pixel {
+    value: number //cor do pixel
+    key: string | null //chave que representa a qual &quot;piscina&quot; o pixel pertence. É inicializada como null
+}</code></pre></li><li><p>Logo após, é retirado um elemento desta fila e, para todos seus pixeis adjacentes com <em>key</em> == <em>null</em> é colocada a <em>key</em> do elemento que foi retirado. Esses pixeis adjacentes são adicionados na fila e o processo se repete, como uma busca em largura. </p></li><li><p>Quando um pixel com a <em>key</em> x tem um pixel adjecente com <em>key</em> y, a chave value do pixel com <em>key</em> y é trocada para representar uma barreira.</p></li></ol>
 
-<h3><a href="">continuar</a> ou <a href="">terminar</a></h3>
+<h2>Complexidade</h2>
 
-<p>Sim, o que pode acontecer é a super segmentação da imagem. Uma vez que a entrada consiste de diferentes valores de pixel, formando várias &quot;piscinas&quot;, a imagem de saída é em <em>greyscale</em> com muitas barreiras o que acaba dificultando a análise.</p>
+<p>Para o algoritmo identificar onde as &quot;piscinas&quot; se encontraram é realizada uma iteração por todos os píxeis da imagem, ou seja, uma busca em largura. Dessa forma o watershed tem característica linear e possui complexidade O(n).</p>
 
-<h2>img supersegmentadaaaaaaaaaa</h2>
+<h2>A supersegmentação</h2>
 
-<h2>Exercício 2</h2>
+<p>No exemplo das moedas, o algoritimo de watershed acabou poluindo a análise, gerando várias regiões indesejadas. Isso ocorreu, visto que 
+a entrada consiste de diferentes valores de pixel, formando várias &quot;piscinas&quot; e, consequentemente, várias regiões.</p>
+
+<h2>Exercício 3</h2>
 
 <p>Como é possível solucionar esse problema?</p>
 
@@ -65,13 +99,9 @@
 
 <p class="figure"><img alt="marker" src="img/marker.png" title="marker" class="raster"/></p>
 
-<h2>Implementação:</h2>
+<h2>Implementação</h2>
 
 <p>Agora vamos abrir o jupyter notebook que está na raiz deste <a href="https://github.com/pedr0luiz/desprog-projeto" target="_blank">repositório</a>.</p>
-
-<h2>Complexidade:</h2>
-
-<p>Para o algoritmo identificar onde as &quot;piscinas&quot; se encontraram é realizada uma iteração por todos os píxeis da imagem, ou seja, uma busca em largura. Dessa forma o watershed tem característica linear e possui complexidade O(n).</p>
 
       </main>
       <footer>
