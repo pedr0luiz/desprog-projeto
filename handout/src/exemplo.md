@@ -1,8 +1,9 @@
 # Algoritmo de WaterShed
 
 ## Contexto
+MUDAR
 
-O algoritmo de watershed propõe uma abordagem morfológica para o problema de segmentação de imagens, interpretando-as como superfícies sendo que cada pixel corresponde à uma posição. Dessa forma, recebendo uma entrada grayscale cada valor de cinza que estiver presente na imagem pode ser considerado uma altura, como se fosse um label (pode ser com uma cor). Esse algoritimo é considerado uma transformada que aplica métodos em pixeis de uma imagem para encontrar diferentes regiões. Além disso, ele trata a imagem como um mapa topográfico classifica as regiões com diferentes cores.
+O problema de segmentação de imagens pode ser interpretado como a classificação de cada uma das superfícies de uma imagem como uma posição. Dessa forma, uma imagem grayscale (com tons em cinza) pode ser "separada" pela diferença entre os valores dos pixeis com um "label" (pode ser com uma cor). Existem diversos algoritmos que realizam a segmentação de imagens em geral para encontrar diferentes regiões. Se consideramos a imagem como um mapa topográfico, podemos classificar as regiões de acordo com a cor e segmenta-lá.
 
 ## Segmentação
 
@@ -18,7 +19,9 @@ Temos embaixo uma imagem com algumas moedas.
 
 Entrem no [link](https://sketchpad.pro/CF31EF06D26063205C2:74bf2b1s#p5,0,0,r0,s1) e "segmentem" a imagem, lembrem-se dos contornos.
 
-Agora apliquem a mesma metologia para segmentar uma imagem de um cerébro neste [link](https://sketchpad.pro/CF31EF06D26063205C2:74bf2b1s#p5,0,0,r0,s1).
+MUDAR PARA O COOKIE
+
+Agora apliquem a mesma metologia para segmentar uma imagem de cookies neste [link](https://sketchpad.pro/DCBEAC6796B105D0AE4:5snslkf8#p1,0,0,r0,s1).
 
 ### 
 
@@ -28,24 +31,17 @@ Há alguma diferença na quantidade de segmentos ao aplicar a metodologia para a
 
 ### 
 
-Sim, a segunda imagem possui muito mais regiões. Depois da segmentação de uma imagem que tem diferentes regiões ou regiões grandes com tons diferentes podemos obter como resultado imagens supersegmentadas. Podemos verificar que a imagem com as moedas é uma imagem que pode acabar ficando supersegmentada, prejudicando a ánalise.
+Sim, a segunda imagem possui muito mais regiões. Depois da segmentação de uma imagem que tem diferentes regiões ou regiões grandes com tons diferentes podemos obter como resultado imagens supersegmentadas. Podemos verificar que a imagem dos cookies é uma imagem que pode acabar ficando supersegmentada, prejudicando a ánalise.
 
-![input](input.jpg)
+![cookies2_super](cookies2_super.png)
 
-![image_super_segmentada](output_superSeg.png)
-
-Quando observamos a imagem supersegmentada do cerébro podemos verificar que ouve um aproveitamento maior, pois os cerébros têm mais 
-regiões que um punho de moedas, não é mesmo?
-
-![brain](brain.jpg)
-
-Dessa forma, existem imagens que a aplicação da metologia do algoritmo acabam ficando super segmentadas. Dessas algumas acabam ficando boas para ánalise, como a imagem supersegmentada do cérebro, outras, como é o caso das moedas, ficam difíceis de serem analisadas quando supersegmentadas.
+![cookies2_super2](cookies2_super2.png)
 
 ## O algoritmo
 
 O algoritmo recebe como entrada uma imagem em _greyscale_, ou seja, em tons de cinza. Ele interpreta essa imagem como um mapa topográfico em que os píxeis vizinhos de mesmo tom são como curvas de nível.
 
-Os níveis de menor valor são preenchidos como uma "piscina".
+Os níveis de menor valor, ou seja, os pixeis mais escuros, começam a ser preenchidos como uma "piscina".
 
 Quando as "piscinas" se encontram é delimitada uma barreira na imagem. Essa barreira se extende ao longo de vários pixeís vizinhos fazendo o contorno de "territórios" em que a cor é diferente da cor adjacente.
 
@@ -73,7 +69,7 @@ Para o algoritmo identificar onde as "piscinas" se encontraram é realizada uma 
 ## A supersegmentação
 
 No exemplo das moedas, o algoritimo de watershed acabou poluindo a análise, gerando várias regiões indesejadas. Isso ocorreu, visto que 
-a entrada consiste de diferentes valores de pixel, formando várias "piscinas" e, consequentemente, várias regiões.
+a entrada consiste de diferentes valores de pixel, formando várias "piscinas" e, consequentemente, várias regiões. Isso pode ser solucioando colocando manualmente os valores dos mínimos locais.
 
 ## Exercício 3
 

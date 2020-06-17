@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <title>Algoritimo de WaterShed</title>
+    <title>Algoritmo de WaterShed</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed:700|Oxygen+Mono|Source+Sans+Pro:700|Source+Serif+Pro&display=swap">
@@ -17,11 +17,13 @@
     <div class="container">
       <main>
 
-<h1>Algoritimo de WaterShed</h1>
+<h1>Algoritmo de WaterShed</h1>
 
 <h2>Contexto</h2>
 
-<p>O algoritmo de watershed propõe uma abordagem morfológica para o problema de segmentação de imagens, interpretando-as como superfícies sendo que cada pixel corresponde à uma posição. Dessa forma, recebendo uma entrada grayscale cada valor de cinza que estiver presente na imagem pode ser considerado uma altura, como se fosse um label (pode ser com uma cor). Esse algoritimo é considerado uma transformada que aplica métodos em pixeis de uma imagem para encontrar diferentes regiões. Além disso, ele trata a imagem como um mapa topográfico classifica as regiões com diferentes cores.</p>
+<p>MUDAR</p>
+
+<p>O problema de segmentação de imagens pode ser interpretado como a classificação de cada uma das superfícies de uma imagem como uma posição. Dessa forma, uma imagem grayscale (com tons em cinza) pode ser &quot;separada&quot; pela diferença entre os valores dos pixeis com um &quot;label&quot; (pode ser com uma cor). Existem diversos algoritmos que realizam a segmentação de imagens em geral para encontrar diferentes regiões. Se consideramos a imagem como um mapa topográfico, podemos classificar as regiões de acordo com a cor e segmenta-lá.</p>
 
 <h2>Segmentação</h2>
 
@@ -36,7 +38,9 @@ imagens é utilizada para localizar objetos e/ou formas. O resultado da segmenta
 
 <p>Entrem no <a href="https://sketchpad.pro/CF31EF06D26063205C2:74bf2b1s#p5,0,0,r0,s1" target="_blank">link</a> e &quot;segmentem&quot; a imagem, lembrem-se dos contornos.</p>
 
-<p>Agora apliquem a mesma metologia para segmentar uma imagem de um cerébro neste <a href="https://sketchpad.pro/CF31EF06D26063205C2:74bf2b1s#p5,0,0,r0,s1" target="_blank">link</a>.</p>
+<p>MUDAR PARA O COOKIE</p>
+
+<p>Agora apliquem a mesma metologia para segmentar uma imagem de cookies neste <a href="https://sketchpad.pro/DCBEAC6796B105D0AE4:5snslkf8#p1,0,0,r0,s1" target="_blank">link</a>.</p>
 
 <h3><a href="">continuar</a> ou <a href="">terminar</a></h3>
 
@@ -46,24 +50,17 @@ imagens é utilizada para localizar objetos e/ou formas. O resultado da segmenta
 
 <h3><a href="">continuar</a> ou <a href="">terminar</a></h3>
 
-<p>Sim, a segunda imagem possui muito mais regiões. Depois da segmentação de uma imagem que tem diferentes regiões ou regiões grandes com tons diferentes podemos obter como resultado imagens supersegmentadas. Podemos verificar que a imagem com as moedas é uma imagem que pode acabar ficando supersegmentada, prejudicando a ánalise.</p>
+<p>Sim, a segunda imagem possui muito mais regiões. Depois da segmentação de uma imagem que tem diferentes regiões ou regiões grandes com tons diferentes podemos obter como resultado imagens supersegmentadas. Podemos verificar que a imagem dos cookies é uma imagem que pode acabar ficando supersegmentada, prejudicando a ánalise.</p>
 
-<p class="figure"><img alt="input" src="img/input.jpg" title="input" class="raster"/></p>
+<p class="figure"><img alt="cookies2_super" src="img/cookies2_super.png" title="cookies2_super" class="raster"/></p>
 
-<p class="figure"><img alt="image_super_segmentada" src="img/output_superSeg.png" title="image_super_segmentada" class="raster"/></p>
-
-<p>Quando observamos a imagem supersegmentada do cerébro podemos verificar que ouve um aproveitamento maior, pois os cerébros têm mais 
-regiões que um punho de moedas, não é mesmo?</p>
-
-<p class="figure"><img alt="brain" src="img/brain.jpg" title="brain" class="raster"/></p>
-
-<p>Dessa forma, existem imagens que a aplicação da metologia do algoritmo acabam ficando super segmentadas. Dessas algumas acabam ficando boas para ánalise, como a imagem supersegmentada do cérebro, outras, como é o caso das moedas, ficam difíceis de serem analisadas quando supersegmentadas.</p>
+<p class="figure"><img alt="cookies2_super2" src="img/cookies2_super2.png" title="cookies2_super2" class="raster"/></p>
 
 <h2>O algoritmo</h2>
 
 <p>O algoritmo recebe como entrada uma imagem em <em>greyscale</em>, ou seja, em tons de cinza. Ele interpreta essa imagem como um mapa topográfico em que os píxeis vizinhos de mesmo tom são como curvas de nível.</p>
 
-<p>Os níveis de menor valor são preenchidos como uma &quot;piscina&quot;.</p>
+<p>Os níveis de menor valor, ou seja, os pixeis mais escuros, começam a ser preenchidos como uma &quot;piscina&quot;.</p>
 
 <p>Quando as &quot;piscinas&quot; se encontram é delimitada uma barreira na imagem. Essa barreira se extende ao longo de vários pixeís vizinhos fazendo o contorno de &quot;territórios&quot; em que a cor é diferente da cor adjacente.</p>
 
@@ -85,7 +82,7 @@ regiões que um punho de moedas, não é mesmo?</p>
 <h2>A supersegmentação</h2>
 
 <p>No exemplo das moedas, o algoritimo de watershed acabou poluindo a análise, gerando várias regiões indesejadas. Isso ocorreu, visto que 
-a entrada consiste de diferentes valores de pixel, formando várias &quot;piscinas&quot; e, consequentemente, várias regiões.</p>
+a entrada consiste de diferentes valores de pixel, formando várias &quot;piscinas&quot; e, consequentemente, várias regiões. Isso pode ser solucioando colocando manualmente os valores dos mínimos locais.</p>
 
 <h2>Exercício 3</h2>
 
