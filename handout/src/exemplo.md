@@ -1,9 +1,8 @@
 # Algoritmo de WaterShed
 
 ## Contexto
-MUDAR
 
-O problema de segmentação de imagens pode ser interpretado como a classificação de cada uma das superfícies de uma imagem como uma posição. Dessa forma, uma imagem grayscale (com tons em cinza) pode ser "separada" pela diferença entre os valores dos pixeis com um "label" (pode ser com uma cor). Existem diversos algoritmos que realizam a segmentação de imagens em geral para encontrar diferentes regiões. Se consideramos a imagem como um mapa topográfico, podemos classificar as regiões de acordo com a cor e segmenta-lá.
+O problema de segmentação de imagens pode ser interpretado como a divisão de uma imagem em múltiplas regiões ou objetos, com o objetivo de simplificar a representação de uma imagem para facilitar a sua análise. A segmentação tem seu uso mais comum para localizar objetos e formas em imagens. O resultado dessa segmentação é um conjunto de regiões, objetos ou contornos retirados da imagem. Cada uma das regiões possuem alguma característica computacional em comum, como cor, textura etc. Existem diversos algoritmos que realizam a segmentação de imagens em geral para encontrar diferentes regiões e o algoritmo de WaterShed é um deles.
 
 ## Segmentação
 
@@ -19,9 +18,7 @@ Temos embaixo uma imagem com algumas moedas.
 
 Entrem no [link](https://sketchpad.pro/CF31EF06D26063205C2:74bf2b1s#p5,0,0,r0,s1) e "segmentem" a imagem, lembrem-se dos contornos.
 
-MUDAR PARA O COOKIE
-
-Agora apliquem a mesma metologia para segmentar uma imagem de cookies neste [link](https://sketchpad.pro/DCBEAC6796B105D0AE4:5snslkf8#p1,0,0,r0,s1).
+Agora apliquem a mesma metologia para segmentar uma imagem de cookies neste [link](https://sketchpad.pro/EB0792E7DC3749F88B5:xsq78qpc#p1,0,0,r0,s1).
 
 ### 
 
@@ -68,12 +65,12 @@ Para o algoritmo identificar onde as "piscinas" se encontraram é realizada uma 
 
 ## A supersegmentação
 
-No exemplo das moedas, o algoritimo de watershed acabou poluindo a análise, gerando várias regiões indesejadas. Isso ocorreu, visto que 
+No exemplo dos cookies, o algoritimo de watershed acabou poluindo a análise, gerando várias regiões indesejadas. Isso ocorreu, visto que 
 a entrada consiste de diferentes valores de pixel, formando várias "piscinas" e, consequentemente, várias regiões. Isso pode ser solucioando colocando manualmente os valores dos mínimos locais.
 
 ## Exercício 3
 
-Como é possível solucionar esse problema?
+Reduzindo o número de piscinas solucionaria esse problema? Se sim, como isso poderia ser feito?
 
 ###
 
