@@ -9,7 +9,6 @@ O problema de segmentação de imagens pode ser interpretado como a divisão de 
 A segmentação nada mais é que uma maneira de identificar as diferentes regiões de uma imagem e delimitar o contorno delas. A segmentação de 
 imagens é utilizada para localizar objetos e/ou formas. O resultado da segmentação é um conjunto de regiões separadas por contornos.
 
-
 ## Exercício 1
 
 Vamos praticar nossa metodologia para aplicar a segmentação de imagem.
@@ -66,7 +65,7 @@ Para o algoritmo identificar onde as "piscinas" se encontraram é realizada uma 
 ## A supersegmentação
 
 No exemplo dos cookies, o algoritimo de watershed acabou poluindo a análise, gerando várias regiões indesejadas. Isso ocorreu, visto que 
-a entrada consiste de diferentes valores de pixel, formando várias "piscinas" e, consequentemente, várias regiões. Isso pode ser solucioando colocando manualmente os valores dos mínimos locais.
+a entrada consiste de diferentes valores de pixel, formando várias "piscinas" e, consequentemente, várias regiões. 
 
 ## Exercício 3
 
